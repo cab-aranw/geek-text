@@ -22,7 +22,7 @@ function App() {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">
-              <Link to="/" className="nav-link">Homepage</Link>
+              <Link to="/" className="nav-link">Hmepage</Link>
             </li>
             <li className="navbar-item">
               <Link to="/sign-in" className="nav-link">Sign in</Link>
