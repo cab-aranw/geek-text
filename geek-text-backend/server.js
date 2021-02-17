@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 
-// store environmental variables in dotenv file
+// Store environmental variables in dotenv file
 require('dotenv').config();
 
 // Create express server
@@ -23,12 +23,18 @@ connection.once('open', () => {
 })
 
 
+// Routes
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+
+const booksRouter = require('./routes/books');
+app.use('/books', booksRouter);
+
+const genresRouter = require('./routes/genres');
+app.use('/genres', genresRouter);
 
 
 // Start server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
-
