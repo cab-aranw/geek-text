@@ -33,6 +33,9 @@ app.use('/books', booksRouter);
 const genresRouter = require('./routes/genres');
 app.use('/genres', genresRouter);
 
+const authorsRouter = require('./routes/authors');
+app.use('/authors', authorsRouter);
+
 
 // Start server
 app.listen(port, () => {
