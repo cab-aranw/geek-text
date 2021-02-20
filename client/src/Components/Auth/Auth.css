@@ -1,0 +1,169 @@
+.auth-form{
+  display: flex;
+  flex-flow: column;
+  width: 60%;
+  margin:0% auto;
+  margin-top: 3rem;
+}
+
+
+.auth-form-header{
+  margin-bottom: 1.5rem
+}
+
+.auth-form > input{
+  margin-bottom: 2rem
+}
+
+.account__form {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.account__form-header {
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  position: relative;
+  font-weight: 400;
+}
+
+.account__form-header::before {
+  content: "";
+  height: 2px;
+  width: 115px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+}
+
+.account__form p {
+  font-size: 0.7rem;
+  margin-bottom: 1.3rem;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.form-control input {
+  padding: 13px 30px;
+  width: 100%;
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  outline-width: 0;
+  font-size: 0.8rem;
+}
+
+.form-control input:active,
+.form-control input:focus {
+  border: 1px solid var(--primary-color);
+}
+
+.account__forgotpassword {
+  display: flex;
+  margin-bottom: 27px;
+  justify-content: space-between;
+  font-size: 0.7rem;
+}
+
+.account__forgotpassword a,
+.account__forgotpassword button {
+  color: var(--tertiary-color);
+  text-decoration: none;
+  border: none;
+  background-color: #fff;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  outline-width: 0;
+}
+
+.account__forgotpassword a:hover,
+.account__forgotpassword button:hover {
+  color: var(--primary-color);
+}
+
+.account__subtext {
+  padding: 0 2rem;
+}
+
+.account__subtext h4 {
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.account__subtext p i {
+  color: var(--sucess-color);
+  font-size: 0.7rem;
+  margin-right: 5px;
+}
+
+.account__subtext p span {
+  font-size: 0.7rem;
+  color: var(--tertiary-color);
+}
+
+.form-divider {
+  position: relative;
+  border-left: 1px solid #ddd;
+}
+
+.form-divider::before {
+  content: "or";
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background: #fff;
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.auth:hover{
+  background: #fed700 !important;
+}
+
+/* ========================= MEDIA QUERIES ========================= */
+@media (max-width: 992px) {
+  .form-divider {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-left: none;
+  }
+
+  .form-divider::before {
+    top: 0;
+    left: 50%;
+    z-index: 2;
+  }
+
+  .form-divider::after {
+    content: "";
+    height: 1px;
+    background-color: #ddd;
+    z-index: 1;
+    position: absolute;
+    display: block;
+    left: 40px;
+    right: 40px;
+    top: 0;
+  }
+}
+
