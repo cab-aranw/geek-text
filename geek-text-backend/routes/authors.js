@@ -1,6 +1,7 @@
-const router = require('express').Router();
-let Author = require('../models/author.model');
+import { Router } from 'express'
+import { Author } from '../models/authorModel.js'
 
+const router = Router();
 // Handle get request
 router.route('/').get((req, res)=>{
     Author.find()
@@ -22,4 +23,4 @@ router.route('/add').post((req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-module.exports = router;
+export default router;

@@ -1,43 +1,41 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import AuthRoute from './routes/users.js'
+import booksRouter from './routes/books.js'
+import genresRouter from './routes/genres.js'
+import authorsRouter from './routes/authors.js'
+const server = express();
+dotenv.config(); 
+//============================================Middlewares==========================================
+server.use(cors());
+server.use(express.json());
+//=====================================MongoDb connection & configs===============================
+const mongoURI = process.env.mongoURI;
+const connectionOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+};
+mongoose.connect(mongoURI, connectionOptions, (error) => {
+  if (error) {
+    return console.log(error);
+  }
+  console.log(`Connection to MongoDB was succesful`);
+});
 
+//=================================================================================================
+server.use(AuthRoute)
 
-// Store environmental variables in dotenv file
-require('dotenv').config();
+server.use('/books', booksRouter);
 
-// Create express server
-const app = express();
-const port = process.env.PORT || 9933;
+server.use('/genres', genresRouter);
 
-// Middleware
-app.use(cors());
-app.use(express.json());
-
-// Database connection
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("Connected to MongoDB database");
-})
-
-
-// Routes
-const usersRouter = require('./routes/users');
-app.use('/users', usersRouter);
-
-const booksRouter = require('./routes/books');
-app.use('/books', booksRouter);
-
-const genresRouter = require('./routes/genres');
-app.use('/genres', genresRouter);
-
-const authorsRouter = require('./routes/authors');
-app.use('/authors', authorsRouter);
-
-
-// Start server
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+server.use('/authors', authorsRouter);
+//===================================Server connection & Configs===================================
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+  console.log(`Server started on PORT ${PORT}`);
 });

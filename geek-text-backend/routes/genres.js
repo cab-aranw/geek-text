@@ -1,6 +1,8 @@
-const router = require('express').Router();
-let Genre = require('../models/genre.model');
+import bodyParser from 'body-parser';
+import { Router } from 'express'
+import { Genre } from '../models/genreModel.js'
 
+const router = Router();
 // Handle get request
 router.route('/').get((req, res)=>{
     Genre.find()
@@ -23,4 +25,4 @@ router.route('/add').post((req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-module.exports = router;
+export default router;
