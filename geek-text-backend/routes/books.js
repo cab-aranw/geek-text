@@ -1,6 +1,6 @@
-const router = require('express').Router();
-let Book = require('../models/book.model');
-
+import { Router } from 'express'
+import { Book } from '../models/bookModel.js'
+const router = Router();
 // Handle get request
 router.route('/').get((req, res)=>{
     Book.find()
@@ -17,4 +17,4 @@ router.route('/add').post((req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-module.exports = router;
+export default router;

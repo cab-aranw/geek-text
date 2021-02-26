@@ -1,29 +1,17 @@
-const router = require('express').Router();
-let User = require('../models/user.model');
-
-// Handle get request
-router.route('/').get((req, res)=>{
-    User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+import { Router } from 'express'
+import { AuthController } from '../Controller/Auth.js'
 
 
-// Handle post request
-router.route('/add').post((req,res) => {
-    const name = req.body.name;
-    const password = req.body.password;
-    const email = req.body.email;
+const router = Router();
+const Controller = new AuthController();
 
-    const newUser = new User({
-        name,
-        password,
-        email,
-    });
+router.post('/api/signup', (request, response)=>{
+  Controller.Signup(request, response)
+})
 
-    newUser.save()
-    .then(() => res.json('User added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+router.post('/api/signin', (request,response) =>
+{
+  Controller.Signin(request, response)
+})
 
-module.exports = router;
+export default router
