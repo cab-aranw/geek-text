@@ -1,0 +1,23 @@
+.sidebar{
+    padding: 1.3rem;
+    flex: .4;
+    border-right: 1px solid black;
+    height: 100vh;
+}
+.credit-menu-option,
+.shipping-menu-option{
+    cursor: pointer;
+}
+
+.credit-card-menu,
+.shipping-menu{
+    display: flex;
+    flex-flow: column;
+    align-items:center;
+}
+
+.credit-card-menu > h4,
+.shipping-menu > h4{
+    margin-bottom: 1rem;
+    
+}

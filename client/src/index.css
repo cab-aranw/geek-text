@@ -142,7 +142,10 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-
+/*Place the text Welcome User on the right side*/
+.dashboard-divider{
+  display : flex;
+}
 /* =========================================================== */
 /* Container Sizings */
 /* =========================================================== */

@@ -1,0 +1,43 @@
+.personal-info-update-form{
+    display: flex;
+    flex-flow: column;
+    padding-left: 3rem;
+}
+
+/*Between the class of personal info look for whatever is h2 and apply
+the bellow changes*/
+
+.personal-info-update-form > h2{
+    margin-bottom: 2rem;
+}
+/*css know about standrad inputs , it know is is a text*/
+.personal-info-update-form > input{
+    margin-bottom: 2rem;
+}
+.btn-wrapper{
+    margin-top: 1.5rem;
+}
+/*Initial load*/
+.btn-update-info{
+    border-radius: 100px;/*Circular shape of the button*/
+    padding: .4rem .2rem;/*LEft and Right*/
+    transition: ease-in-out .4s;/*Adds the effect when youi hover on it*/
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+/*When you hover, chang the background color*/
+.btn-update-info:hover{
+    background-color: black;
+    color: white;
+}
+.btn-cancel{
+    margin-left: 1.5rem;
+    background-color: red;
+    border-radius: 100px;/*Circular shape of the button*/
+    padding: .4rem .2rem;/*LEft and Right*/
+    transition: ease-in-out .4s;/*Adds the effect when youi hover on it*/
+    color: white;
+    cursor: pointer;
+}
